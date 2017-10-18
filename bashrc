@@ -34,7 +34,7 @@ export -f xtso
 #source /opt/softs/mkl/16/bin/compilervars.sh intel64
 #source /opt/softs/icc/15/bin/compilervars.sh intel64
 
-if [ -z "$BASHRC_READ" ]; then
+if [ -z "$BASHRC_READ" ] && [ $HOSTNAME == "summer" ]; then
    export BASHRC_READ=1
    source  /etc/profile.d/modules.sh
 fi
@@ -45,7 +45,10 @@ fi
 #   module load impi
 #   module load ompi
 #   module load python/2.7.8
-   module -q restore
+if [$HOSTNAME == "summer"]; then
+    module -q restore
+fi
+
    export LD_LIBRARY_PATH=/home/em250772/lib:$LD_LIBRARY_PATH
 #   export LD_LIBRARY_PATH=/home/prog/usr/fftw3/lib:$LD_LIBRARY_PATH
 #   export LD_LIBRARY_PATH=/opt/softs/mpi/openmpi-1.6.5_intel-13.0/lib:$LD_LIBRARY_PATH
