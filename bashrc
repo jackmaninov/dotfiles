@@ -87,7 +87,7 @@ export OCTAVE_EXEC_PATH=${PATH}::
 export OCTAVE_PATH=${STRUCTEDIT_PATH}::
 
 #export PATH=$PATH:$WIENROOT:.
-ulimit -s unlimited
+ulimit -s unlimited 2> /dev/null
 alias octave="octave -p $OCTAVE_PATH"
 # --------------------------------------------------------
 # added by WIEN2k: END
