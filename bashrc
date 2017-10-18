@@ -45,7 +45,7 @@ fi
 #   module load impi
 #   module load ompi
 #   module load python/2.7.8
-if [$HOSTNAME == "summer"]; then
+if [ $HOSTNAME == "summer" ]; then
     module -q restore
 fi
 
