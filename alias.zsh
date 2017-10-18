@@ -5,7 +5,7 @@
 #alias tls='tmux ls'
 #alias tkill='tmux kill-session -t'
 alias mux="tmuxinator"
-alias t="m default"
+alias t="mux default"
 alias em="mux edit default"
 
 # # convenience aliases for editing configs
