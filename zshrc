@@ -1,10 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
 
-source $HOME/dotfiles/antigen/antigen.zsh
 
 #summer build settings
-if [[ $HOSTNAME = "summer" ]] ; then
+if [[ `hostname -d` == "cluster" ]] ; then
     source  /etc/profile.d/modules.sh
     module -q restore
 
@@ -18,6 +17,8 @@ if [[ $HOSTNAME = "summer" ]] ; then
     export FCFLAGS="-O3 -mavx"
     export FFLAGS="-O3 -mavx"
 fi
+
+source $HOME/dotfiles/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting

@@ -7,3 +7,6 @@
 [submodule "tmuxinator"]
 	path = tmuxinator
 	url = https://github.com/tmuxinator/tmuxinator
+[submodule "vim2"]
+	path = vim2
+	url = https://github.com/zaiste/vimified
