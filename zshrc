@@ -3,7 +3,7 @@ export PATH=$HOME/bin:$PATH
 
 
 #summer build settings
-if [[ `hostname -d` == "cluster" ]] ; then
+if [[ `hostname -f | sed -e 's/^[^.]*\.//'` == "cluster" ]] ; then
     source  /etc/profile.d/modules.sh
     module -q restore
 
