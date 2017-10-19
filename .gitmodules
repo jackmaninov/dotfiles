@@ -1,6 +1,6 @@
 [submodule "vimified"]
 	path = vimified
-	url = https://github.com/zaiste/vimified.git
+	url = https://github.com/zaiste/vimified
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
