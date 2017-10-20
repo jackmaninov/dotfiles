@@ -39,7 +39,8 @@ alias ej='vim +14 job'
 alias ra='source ~/.alias.zsh'
 alias psm='ps -fjH -u em250772'
 
-#tmux
+#python
+alias j='jupyter notebook --no-browser'
 
 function mkjob () {
 	cp /W/em250772/job .
