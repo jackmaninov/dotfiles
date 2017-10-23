@@ -10,16 +10,16 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc vim vimrc zshrc antigen alias.zsh tmux.conf "    # list of files/folders to symlink in homedir
 
-git submodule init¬
-git submodule update¬
-cd vimified¬
-mkdir bundle¬
-mkdir -p tmp/backup tmp/swap tmp/undo¬
-git clone https://github.com/gmarik/vundle.git bundle/vundle¬
-ln -s ../local.vimrc .¬
-ln -s ../extra.vimrc .¬
-cd ..¬
-vim +BundleInstall +qall¬
+git submodule init
+git submodule update
+cd vimified
+mkdir bundle
+mkdir -p tmp/backup tmp/swap tmp/undo
+git clone https://github.com/gmarik/vundle.git bundle/vundle
+ln -s ../local.vimrc .
+ln -s ../extra.vimrc .
+cd ..
+vim +BundleInstall +qall
 
 ##########
 
