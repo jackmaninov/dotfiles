@@ -98,3 +98,5 @@ export PATH=$PATH:$FDMNESROOT
 
 source ~/.alias.zsh
 source $HOME/dotfiles/tmuxinator/completion/tmuxinator.zsh
+
+export FW_CONFIG_FILE=$HOME/.fireworks/FW_config.yaml
