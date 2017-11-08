@@ -25,10 +25,10 @@ alias s='less STDOUT'
 #alias s='rm .watchfile ; while sleep 2; do tail -20 STDOUT > .watchtmp; clear; cat .watchtmp; watchdir 1800; done'
 alias ss='watch tail -20 STDOUT'
 alias so='rm .watchfile ;  while sleep 2; do zsh -c "grep :FR ${PWD##*/}.scf | tail -5 ; echo -- && tail -20 STDOUT  ; watchdir 180" > .watchtmp; clear; cat .watchtmp; done'
-alias q='qstat -u em250772'
+alias q='qstat -u em250772 -n'
 alias qs='qsub job'
 alias qj='qsub job'
-alias wq='watch "qstat -u em250772"'
+alias wq='watch "qstat -u em250772 -n"'
 alias xqt='x qtl -p  -telnes'
 alias xqtso='x qtl -p  -telnes -so'
 alias j='jupyter notebook --no-browser'
@@ -71,3 +71,15 @@ function mkojob () {
 	sed -i "s#CASE_HERE#$case#g" ./ojob
 	sed -i "s#OPTNAME_HERE#$2#g" ./ojob
 }
+
+function mkjobfdmnes () {
+	cp /W/em250772/jobfdmnes .
+	chmod a+x ./job
+	fullpath=${PWD##}
+	case=${PWD##*/}
+	sed -i "s#NUMNODES_HERE#$1#g" ./job
+	sed -i "s#PATH_HERE#$fullpath#g" ./job
+	sed -i "s#CASE_HERE#$case#g" ./job
+}
+
+
