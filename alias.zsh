@@ -16,7 +16,7 @@ alias rz='source ~/.zshrc'
 alias ea='vi ~/.alias.zsh'
 
 # custom
-alias ls='ls --color -h'
+#alias ls='ls -h'
 alias lh='ls -lth|/usr/bin/head -20'
 alias ll='ls -lh'
 alias wlh='watch "ls -lth |head -20"'
