@@ -71,14 +71,14 @@ export OMP_NUM_THREADS=1
 #export LD_LIBRARY_PATH=.....
 export EDITOR="vim"
 export SCRATCH=./
-export WIENROOT=/home/em250772/WIEN2k_17
+export WIENROOT=$HOME/WIEN2k_17
 export W2WEB_CASE_BASEDIR=/W/em250772
 export STRUCTEDIT_PATH=$WIENROOT/SRC_structeditor/bin
 export PDFREADER=acroread
 export PATH=$WIENROOT:$STRUCTEDIT_PATH:$WIENROOT/SRC_IRelast/script-elastic:$PATH:.
 export OCTAVE_EXEC_PATH=${PATH}::
 export OCTAVE_PATH=${STRUCTEDIT_PATH}::
-export XCRYSDEN_TOPDIR=/home/em250772/xcrysden-1.5.60
+export XCRYSDEN_TOPDIR=$HOME/xcrysden-1.5.60
 export XCRYSDEN_SCRATCH=/tmp
 
 export PATH=$PATH:$WIENROOT:.
@@ -93,7 +93,7 @@ alias berrypi="${BERRYPI_PYTHON} ${BERRYPI_PATH}/berrypi"
 # --- BERRYPI END ---
 #
 #
-export FDMNESROOT="/home/em250772/fdmnes"
+export FDMNESROOT="$HOME/fdmnes"
 export PATH=$PATH:$FDMNESROOT
 
 source ~/.alias.zsh
