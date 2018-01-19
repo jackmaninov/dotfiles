@@ -15,6 +15,10 @@ alias ez='vim ~/.zshrc'
 alias rz='source ~/.zshrc'
 alias ea='vi ~/.alias.zsh'
 
+if [[ `hostname -f | sed -e 's/^[^.]*\.//'` == "cluster" ]] ; then
+    alias ls='ls -h --color'
+fi
+
 # custom
 #alias ls='ls -h'
 alias lh='ls -lth|/usr/bin/head -20'
