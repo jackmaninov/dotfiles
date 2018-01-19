@@ -28,7 +28,7 @@ alias so='rm .watchfile ;  while sleep 2; do zsh -c "grep :FR ${PWD##*/}.scf | t
 alias q='qstat -u em250772 -n'
 alias qs='qsub job'
 alias qj='qsub job'
-alias wq='watch "qstat -u em250772 -n"'
+alias wq='watch "qstat -u em250772 "'
 alias xqt='x qtl -p  -telnes'
 alias xqtso='x qtl -p  -telnes -so'
 alias j='jupyter notebook --no-browser'
@@ -41,9 +41,10 @@ alias psm='ps -fjH -u em250772'
 
 #python
 alias j='jupyter notebook --no-browser'
+alias webgui='lpad webgui -s --host summer.intra.cea.fr'
 
 function mkjob () {
-	cp /W/em250772/job .
+	cp ~/templates/job .
 	chmod a+x ./job
 	fullpath=${PWD##}
 	case=${PWD##*/}
@@ -53,7 +54,7 @@ function mkjob () {
 }
 
 function mkjobqtl () {
-	cp /W/em250772/jobqtl .
+	cp ~/templates/jobqtl .
 	chmod a+x ./job
 	fullpath=${PWD##}
 	case=${PWD##*/}
@@ -62,7 +63,7 @@ function mkjobqtl () {
 }
 
 function mkojob () {
-	cp /W/em250772/ojob .
+	cp ~/templates/ojob .
 	chmod a+x ./ojob
 	fullpath=${PWD##}
 	case=${PWD##*/}
@@ -73,7 +74,7 @@ function mkojob () {
 }
 
 function mkjobfdmnes () {
-	cp /W/em250772/jobfdmnes .
+	cp ~/templates/jobfdmnes ./job
 	chmod a+x ./job
 	fullpath=${PWD##}
 	case=${PWD##*/}
@@ -82,4 +83,27 @@ function mkjobfdmnes () {
 	sed -i "s#CASE_HERE#$case#g" ./job
 }
 
+function mkfdmnes () {
+    fullpath=${PWD##}
+    case=${PWD##*/}
+    mkdir fdmnes
+    cd fdmnes
+    cp ../$case.struct .
+    cp ../$case.corewfx .
+    cp ../$case.vcoul .
+    cp ../$case.r2v .
+    cp ../$case.clmsum .
+    cp ~/templates/fdmfile.txt .
+    cp ~/templates/fdmnes.in ./$case.in
+    sed -i "s#CASE_HERE#$case#g" ./$case.in
+    sed -i "s#CASE_HERE#$case#g" ./fdmfile.txt
+    cat $case.corewfx |wc -l > $case.1s
+    cat $case.corewfx >> $case.1s
+    sed -i "s/..............$//g" $case.1s
+    mkjobfdmnes 1
+}
+
+function packdos () {
+    tar cjf "$1".tar.bz2 "$1"/*DOS* "$1"/*XAS* "$1"/*XES*
+}
 
