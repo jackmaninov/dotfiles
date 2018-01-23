@@ -9,13 +9,14 @@ if [[ `hostname -f | sed -e 's/^[^.]*\.//'` == "cluster" ]] ; then
 
     source /home/em250772/etc/profile.d/grc.bashrc
 
-    export CC=icc
-    export mpicc=mpiicc
-    export F77=ifort
-    export MPIF77=mpiifort
-    export CFLAGS="-O3 -mavx"
-    export FCFLAGS="-O3 -mavx"
-    export FFLAGS="-O3 -mavx"
+#    export CC=icc
+#    export mpicc=mpiicc
+#    export F77=ifort
+#    export MPIF77=mpiifort
+    export CFLAGS="-O3"
+    export FCFLAGS="-O3"
+    export FFLAGS="-O3"
+    alias ls='ls --color'
 fi
 
 source $HOME/dotfiles/antigen/antigen.zsh
@@ -32,6 +33,7 @@ antigen bundle nojhan/liquidprompt
 antigen apply
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+setopt +o nomatch
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

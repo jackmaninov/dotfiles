@@ -108,6 +108,6 @@ function mkfdmnes () {
 }
 
 function packdos () {
-    tar cjf "$1".tar.bz2 "$1"/*DOS* "$1"/*XAS* "$1"/*XES*
+    tar cf "$1".tar --ignore-failed-read --transform='s,.*\.,,' "$1"/*DOS_* "$1"/*XAS_* "$1"/*XES_*
 }
 
