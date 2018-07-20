@@ -55,8 +55,8 @@ alias xqtso='x qtl -p  -telnes -so'
 alias j='jupyter notebook --no-browser'
 alias vi='vim'
 
-export LD_LIBRARY_PATH=/home/em250772/lib:$LD_LIBRARY_PATH
-export CPATH=/home/em250772/include:$CPATH
+#export LD_LIBRARY_PATH=/home/em250772/lib:$LD_LIBRARY_PATH
+#export CPATH=/home/em250772/include:$CPATH
 
 # added by WIEN2k: BEGIN
 # --------------------------------------------------------
@@ -73,11 +73,12 @@ export OMP_NUM_THREADS=1
 #export LD_LIBRARY_PATH=.....
 export EDITOR="vim"
 export SCRATCH=./
-export WIENROOT=$HOME/WIEN2k_17
+export WIENROOT=$HOME/WIEN2k_18
 export W2WEB_CASE_BASEDIR=/W/em250772
 export STRUCTEDIT_PATH=$WIENROOT/SRC_structeditor/bin
 export PDFREADER=acroread
-export PATH=$WIENROOT:$STRUCTEDIT_PATH:$WIENROOT/SRC_IRelast/script-elastic:$PATH:.
+export PATH=$WIENROOT:$STRUCTEDIT_PATH:$WIENROOT/SRC_IRelast/script-elastic:$PATH
+
 export OCTAVE_EXEC_PATH=${PATH}::
 export OCTAVE_PATH=${STRUCTEDIT_PATH}::
 export XCRYSDEN_TOPDIR=$HOME/xcrysden-1.5.60
@@ -102,3 +103,6 @@ source ~/.alias.zsh
 source $HOME/dotfiles/tmuxinator/completion/tmuxinator.zsh
 
 export FW_CONFIG_FILE=$HOME/.fireworks/FW_config.yaml
+
+#export PATH=/home/prog/gcc/gcc-7.3.0/bin/:$PATH
+source /home/prog/anaconda/anaconda-3-4.3.1/bin/activate eelsmodel
