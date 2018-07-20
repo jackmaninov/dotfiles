@@ -20,6 +20,7 @@ ln -s ../local.vimrc .
 ln -s ../extra.vimrc .
 cd ..
 vim +BundleInstall +qall
+chmod -R 755 antigen
 
 ##########
 
