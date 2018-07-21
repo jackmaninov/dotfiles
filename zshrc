@@ -19,6 +19,8 @@ if [[ `hostname -f | sed -e 's/^[^.]*\.//'` == "cluster" ]] ; then
     alias ls='ls --color'
 fi
 
+export PATH=/home/eamon/anaconda3/bin:$PATH
+
 source $HOME/dotfiles/antigen/antigen.zsh
 
 antigen use oh-my-zsh
@@ -73,8 +75,8 @@ export OMP_NUM_THREADS=1
 #export LD_LIBRARY_PATH=.....
 export EDITOR="vim"
 export SCRATCH=./
-export WIENROOT=$HOME/WIEN2k_17
-export W2WEB_CASE_BASEDIR=/W/em250772
+export WIENROOT=$HOME/WIEN2k_18
+export W2WEB_CASE_BASEDIR=/home/eamon
 export STRUCTEDIT_PATH=$WIENROOT/SRC_structeditor/bin
 export PDFREADER=acroread
 export PATH=$WIENROOT:$STRUCTEDIT_PATH:$WIENROOT/SRC_IRelast/script-elastic:$PATH:.
