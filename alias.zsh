@@ -23,6 +23,7 @@ fi
 #alias ls='ls -h'
 alias lh='ls -lth|/usr/bin/head -20'
 alias ll='ls -lh'
+alias lsd='ls -lhd */'
 alias wlh='watch "ls -lth |head -20"'
 alias W='pushd /W/em250772'
 alias s='less STDOUT'
@@ -38,7 +39,7 @@ alias xqtso='x qtl -p  -telnes -so'
 alias j='jupyter notebook --no-browser'
 alias vi='vim'
 alias dh='dirs -v'
-alias vj='vim +16 job'
+alias vj='vim +14 job'
 alias ej='vim +14 job'
 alias ra='source ~/.alias.zsh'
 alias psm='ps -fjH -u em250772'
@@ -55,6 +56,7 @@ function mkjob () {
 	sed -i "s#NUMNODES_HERE#$1#g" ./job
 	sed -i "s#PATH_HERE#$fullpath#g" ./job
 	sed -i "s#CASE_HERE#$case#g" ./job
+    sed -i "s#SP_HERE#$2#g" ./job
 }
 
 function mkjobqtl () {
@@ -108,6 +110,6 @@ function mkfdmnes () {
 }
 
 function packdos () {
-    tar cf "$1".tar --ignore-failed-read --transform='s,.*\.,,' "$1"/*DOS_* "$1"/*XAS_* "$1"/*XES_*
+    tar cf "$1$2".tar --ignore-failed-read --transform='s,.*\.,,' "$1"/*DOS_* "$1"/*XAS_* "$1"/*XES_*
 }
 
