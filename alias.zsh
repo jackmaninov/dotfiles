@@ -43,6 +43,7 @@ alias vj='vim +14 job'
 alias ej='vim +14 job'
 alias ra='source ~/.alias.zsh'
 alias psm='ps -fjH -u em250772'
+alias lm='cp ~/templates/local_machines .machines'
 
 #python
 alias j='jupyter notebook --no-browser'
