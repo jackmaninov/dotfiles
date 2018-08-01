@@ -108,4 +108,4 @@ source $HOME/dotfiles/tmuxinator/completion/tmuxinator.zsh
 export FW_CONFIG_FILE=$HOME/.fireworks/FW_config.yaml
 
 #export PATH=/home/prog/gcc/gcc-7.3.0/bin/:$PATH
-source /home/prog/anaconda/anaconda-3-4.3.1/bin/activate eelsmodel
+#source /home/prog/anaconda/anaconda-3-4.3.1/bin/activate eelsmodel
