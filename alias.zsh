@@ -22,6 +22,7 @@ fi
 # custom
 #alias ls='ls -h'
 alias lh='ls -lth|/usr/bin/head -20'
+alias lds='ls -ld */'
 alias ll='ls -lh'
 alias lsd='ls -lhd */'
 alias wlh='watch "ls -lth |head -20"'
@@ -47,6 +48,11 @@ alias lm='cp ~/templates/local_machines .machines'
 #python
 alias j='jupyter notebook --no-browser'
 alias webgui='lpad webgui -s --host summer.intra.cea.fr'
+
+#fireworks
+alias tq='rlaunch rapidfire --nlaunches infinite --sleep 5'
+alias pq='rlaunch -l ~/.fireworks/prodlocal_launchpad.yaml rapidfire --nlaunches infinite --sleep 5'
+alias ma='mongo -u admin -p svCpKjWsmhL1\!74D'
 
 function mkjob () {
 	cp ~/templates/job .
