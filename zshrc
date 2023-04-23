@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 
 #summer build settings
@@ -34,8 +35,13 @@ antigen bundle nojhan/liquidprompt
 
 antigen apply
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+#export SSH_KEY_PATH="~/.ssh/rsa_id"
 setopt +o nomatch
+export SSH_AUTH_SOCK=~/.ssh/agent.socket
+if ! fuser -s $SSH_AUTH_SOCK 2>/dev/null; then
+      rm -f $SSH_AUTH_SOCK
+        setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,umask=077 EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

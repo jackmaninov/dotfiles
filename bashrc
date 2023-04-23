@@ -4,8 +4,8 @@
 #
 #source /home/gene/gene.bashrc
 
-#	Mettre ci-dessous les alias qui vous sont propres
-export PATH=/home/em250772/bin:$PATH
+#Mettre ci-dessous les alias qui vous sont propres
+#export PATH=/home/em250772/bin:$PATH
 
 export PS1='\u@\h:\w>'
 alias lh='ls -lth|head -20'
