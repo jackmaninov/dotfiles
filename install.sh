@@ -8,10 +8,12 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vim vimrc zshrc antigen alias.zsh tmux.conf "    # list of files/folders to symlink in homedir
+files="bashrc zshrc alias.zsh tmux.conf .config/nvim/lua/custom "    # list of files/folders to symlink in homedir
 
 git submodule init
 git submodule update
+
+# set up vimified in case no neovim
 cd vimified
 mkdir bundle
 mkdir -p tmp/backup tmp/swap tmp/undo
@@ -22,6 +24,10 @@ cd ..
 vim +BundleInstall +qall
 chmod -R 755 antigen
 
+# Install NvChad
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+# Install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git antigen/bundles/robbyrussell/oh-my-zsh/custom/themes/powerlevel10k
 ##########
 
 # create dotfiles_old in homedir
