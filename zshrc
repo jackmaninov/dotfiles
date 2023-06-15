@@ -4,19 +4,32 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+source $HOME/dotfiles/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle git
+antigen bundle python
+antigen bundle command-not-found
+
+antigen theme romkatv/powerlevel10k
+
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+
+antigen apply
+
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin:/home/eamon/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 export COLORTERM=truecolor
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,17 +93,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git kubectl python)
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/dotfiles/antigen/antigen.zsh
-
-antigen use oh-my-zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle git
-antigen bundle python
-antigen bundle command-not-found
-
-antigen apply
-
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
