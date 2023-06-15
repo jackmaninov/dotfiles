@@ -18,7 +18,12 @@ case "${unameOut}" in
 esac
 export machine
 
-if [[ machine != Mac ]]
+if [[ "$machine" == "Synology" ]]
+then
+  export SHELL=/usr/local/bin/zsh
+fi
+
+if [[ "$machine" != "Mac" ]]
 then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
