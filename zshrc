@@ -5,8 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-unameOut="$(uname -s)"
+unameOut="$(uname -a)"
 case "${unameOut}" in
+    Linux*WSL2*) machine=WSL2;;
     Linux*)     machine=Linux;;
     Darwin*)    machine=Mac;;
     CYGWIN*)    machine=Cygwin;;
@@ -14,6 +15,7 @@ case "${unameOut}" in
     MSYS_NT*)   machine=Git;;
     *)          machine="UNKNOWN:${unameOut}"
 esac
+export machine
 
 if [[ machine != Mac ]]
 then
@@ -142,7 +144,7 @@ source ~/.alias.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export SSH_AUTH_SOCK=~/.ssh/agent.socket
-if [[ $HOST != Eamons-MBP ]]
+if [[ $machine == WSL2 ]]
 then
     if ! fuser -s $SSH_AUTH_SOCK 2>/dev/null; then
           rm -f $SSH_AUTH_SOCK
