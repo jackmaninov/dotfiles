@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vim vimrc zshrc antigen alias.zsh tmux.conf "    # list of files/folders to symlink in homedir
+files="bashrc zshrc alias.zsh tmux.conf .config/nvim/lua/custom "    # list of files/folders to symlink in homedir
 
 git submodule init
 git submodule update
@@ -21,6 +21,10 @@ ln -s ../extra.vimrc .
 cd ..
 vim +BundleInstall +qall
 chmod -R 755 antigen
+
+# Install NvChad
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+
 
 ##########
 

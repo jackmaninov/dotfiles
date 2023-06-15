@@ -5,13 +5,17 @@
 #alias tls='tmux ls'
 #alias tkill='tmux kill-session -t'
 alias mux="tmuxinator"
+alias nv="nvim"
+alias evp="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/plugins.lua; popd"
+alias evm="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/mappings.lua; popd"
 alias t="mux default"
 alias em="mux edit default"
+alias pb="ansible-playbook -i /home/eamon/src/bronding/infra/ansible/inventory/signet/inventory.yaml"
 
 # # convenience aliases for editing configs
-alias ev='vim ~/.vimrc'
-alias et='vim ~/.tmux.conf'
-alias ez='vim ~/.zshrc'
+alias ev='vi ~/.vimrc'
+alias et='vi ~/.tmux.conf'
+alias ez='vi ~/.zshrc'
 alias rz='source ~/.zshrc'
 alias ea='vi ~/.alias.zsh'
 
@@ -37,7 +41,7 @@ alias qj='qsub job'
 alias wq='watch "qstat -u em250772 "'
 alias xqt='x qtl -p  -telnes'
 alias xqtso='x qtl -p  -telnes -so'
-alias vi='vim'
+alias vi='nvim'
 alias dh='dirs -v'
 alias vj='vim +14 job'
 alias ej='vim +14 job'
