@@ -5,7 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source $HOME/dotfiles/antigen/antigen.zsh
+
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -14,13 +16,15 @@ antigen bundle python
 antigen bundle command-not-found
 
 antigen theme romkatv/powerlevel10k
+# antigen theme robbyrussel
+# antigen bundle nojhan/liquidprompt
 
 
 antigen apply
 
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin:/home/eamon/.cargo/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/home/eamon/.cargo/bin:$PATH
 
 export COLORTERM=truecolor
 
