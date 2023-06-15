@@ -1719,14 +1719,19 @@
     prompt_example
   }
 
-  function prompt_my_cpu_temp() {
-    integer cpu_temp="$(</sys/class/hwmon/hwmon0/temp1_input) / 1000"
-    if (( cpu_temp >= 80 )); then
-      p10k segment -s HOT  -f red -i 󰈸 -t "${cpu_temp}"$'\uE339' -i $'\uF737'
-    elif (( cpu_temp >= 55 )); then
-      p10k segment -s WARM -f yellow -i  -t "${cpu_temp}"$'\uE339' -i $'\uE350'
-    fi
-  }
+    function prompt_my_cpu_temp() {
+      if [[ $machine == Synology ]]
+      then
+        integer cpu_temp="$(</sys/class/hwmon/hwmon0/temp1_input) / 1000"
+      else
+        integer cpu_temp="0"
+      fi
+      if (( cpu_temp >= 80 )); then
+        p10k segment -s HOT  -f red -i 󰈸 -t "${cpu_temp}"$'\uE339' -i $'\uF737'
+      elif (( cpu_temp >= 55 )); then
+        p10k segment -s WARM -f yellow -i  -t "${cpu_temp}"$'\uE339' -i $'\uE350'
+      fi
+    }
   # User-defined prompt segments can be customized the same way as built-in segments.
   typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=3
   typeset -g POWERLEVEL9K_EXAMPLE_BACKGROUND=1
