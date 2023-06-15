@@ -5,7 +5,21 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    MSYS_NT*)   machine=Git;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ machine != Mac ]]
+then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 source $HOME/dotfiles/antigen/antigen.zsh
 
 
@@ -128,9 +142,12 @@ source ~/.alias.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export SSH_AUTH_SOCK=~/.ssh/agent.socket
-if ! fuser -s $SSH_AUTH_SOCK 2>/dev/null; then
-      rm -f $SSH_AUTH_SOCK
-        setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,umask=077 EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
+if [[ $HOST != Eamons-MBP ]]
+then
+    if ! fuser -s $SSH_AUTH_SOCK 2>/dev/null; then
+          rm -f $SSH_AUTH_SOCK
+            setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,umask=077 EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
+    fi
 fi
 # . /etc/zsh_command_not_found
 setopt +o nomatch
