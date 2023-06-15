@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:/opt/bin:/opt/sbin:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export TERM=xterm
 
 
 #summer build settings
