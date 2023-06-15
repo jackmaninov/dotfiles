@@ -8,6 +8,7 @@ fi
 unameOut="$(uname -a)"
 case "${unameOut}" in
     Linux*WSL2*) machine=WSL2;;
+    Linux*synology*) machine=Synology;;
     Linux*)     machine=Linux;;
     Darwin*)    machine=Mac;;
     CYGWIN*)    machine=Cygwin;;
