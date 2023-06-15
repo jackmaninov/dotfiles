@@ -12,6 +12,8 @@ files="bashrc zshrc alias.zsh tmux.conf .config/nvim/lua/custom "    # list of f
 
 git submodule init
 git submodule update
+
+# set up vimified in case no neovim
 cd vimified
 mkdir bundle
 mkdir -p tmp/backup tmp/swap tmp/undo
@@ -24,8 +26,8 @@ chmod -R 755 antigen
 
 # Install NvChad
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-
-
+# Install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git antigen/bundles/robbyrussell/oh-my-zsh/custom/themes/powerlevel10k
 ##########
 
 # create dotfiles_old in homedir

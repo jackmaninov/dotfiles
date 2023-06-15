@@ -4,6 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
 source $HOME/dotfiles/antigen/antigen.zsh
 
 antigen use oh-my-zsh
@@ -14,7 +15,6 @@ antigen bundle command-not-found
 
 antigen theme romkatv/powerlevel10k
 
-# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 antigen apply
 
@@ -22,8 +22,6 @@ antigen apply
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin:/home/eamon/.cargo/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-# export ZSH="$HOME/.oh-my-zsh"
 export COLORTERM=truecolor
 
 # Set name of the theme to load --- if set to "random", it will
@@ -91,9 +89,8 @@ export COLORTERM=truecolor
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl python)
+plugins=(git kubectl python ansible terraform kubectl)
 
-# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 

@@ -6,6 +6,7 @@
 #alias tkill='tmux kill-session -t'
 alias mux="tmuxinator"
 alias nv="nvim"
+alias vi='nvim'
 alias evp="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/plugins.lua; popd"
 alias evm="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/mappings.lua; popd"
 alias t="mux default"
@@ -41,7 +42,6 @@ alias qj='qsub job'
 alias wq='watch "qstat -u em250772 "'
 alias xqt='x qtl -p  -telnes'
 alias xqtso='x qtl -p  -telnes -so'
-alias vi='nvim'
 alias dh='dirs -v'
 alias vj='vim +14 job'
 alias ej='vim +14 job'
