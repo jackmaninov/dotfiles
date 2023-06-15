@@ -15,7 +15,7 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-if [[ machine != Mac ]]
+if [[ $machine != Mac ]]
 then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
