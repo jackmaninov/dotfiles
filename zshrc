@@ -154,7 +154,7 @@ if [[ $machine == WSL2 ]]
 then
     if ! fuser -s $SSH_AUTH_SOCK 2>/dev/null; then
           rm -f $SSH_AUTH_SOCK
-            setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,umask=077 EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
+            /usr/bin/setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,umask=077 EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
     fi
 fi
 # . /etc/zsh_command_not_found
