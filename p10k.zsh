@@ -79,7 +79,7 @@
     haskell_stack           # haskell version from stack (https://haskellstack.org/)
     kubecontext             # current kubernetes context (https://kubernetes.io/)
     terraform               # terraform workspace (https://www.terraform.io)
-    # terraform_version     # terraform version (https://www.terraform.io)
+    terraform_version     # terraform version (https://www.terraform.io)
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
     azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
@@ -97,7 +97,7 @@
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
     # vpn_ip                # virtual private network indicator
-    # load                  # CPU load
+    load                  # CPU load
     # disk_usage            # disk usage
     # ram                   # free RAM
     # swap                  # used swap
@@ -114,6 +114,7 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
+    my_cpu_temp
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
@@ -1718,6 +1719,19 @@
     prompt_example
   }
 
+    function prompt_my_cpu_temp() {
+      if [[ $machine == Synology ]]
+      then
+        integer cpu_temp="$(</sys/class/hwmon/hwmon0/temp1_input) / 1000"
+      else
+        integer cpu_temp="0"
+      fi
+      if (( cpu_temp >= 80 )); then
+        p10k segment -s HOT  -f red -i 󰈸 -t "${cpu_temp}"$'\uE339' -i $'\uF737'
+      elif (( cpu_temp >= 55 )); then
+        p10k segment -s WARM -f yellow -i  -t "${cpu_temp}"$'\uE339' -i $'\uE350'
+      fi
+    }
   # User-defined prompt segments can be customized the same way as built-in segments.
   typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=3
   typeset -g POWERLEVEL9K_EXAMPLE_BACKGROUND=1
