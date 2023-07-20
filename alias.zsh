@@ -19,6 +19,7 @@ alias et='vi ~/.tmux.conf'
 alias ez='vi ~/.zshrc'
 alias rz='source ~/.zshrc'
 alias ea='vi ~/.alias.zsh'
+alias k='kubectl'
 
 if [[ `hostname -f | sed -e 's/^[^.]*\.//'` == "cluster" ]] ; then
     alias ls='ls -h --color'
