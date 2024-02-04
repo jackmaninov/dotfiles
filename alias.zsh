@@ -9,7 +9,8 @@ alias nv="nvim"
 alias vi='nvim'
 alias evp="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/plugins.lua; popd"
 alias evm="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/mappings.lua; popd"
-alias t="mux default"
+# alias t="mux default"
+alias t="TERM=xterm-256color talosctl --context hjallr-dev"
 alias em="mux edit default"
 alias pb="ansible-playbook -i /home/eamon/src/bronding/infra/ansible/inventory/signet/inventory.yaml"
 
@@ -20,6 +21,8 @@ alias ez='vi ~/.zshrc'
 alias rz='source ~/.zshrc'
 alias ea='vi ~/.alias.zsh'
 alias k='kubectl'
+alias ciliumkick='kubectl -n kube-system rollout restart deployment/cilium-operator && kubectl -n kube-system rollout restart ds/cilium && kubectl -n kube-system rollout restart ds/cilium-envoy'
+alias cleanpods="kubectl get pods --all-namespaces | grep -E OutOfcpu\|Evicted\|Completed\|OOMKilled\|Error\|ContainerStatusUnknown| awk ' {print \"kubectl delete po \" $2 \" -n \" $1 }' | bash"
 
 if [[ `hostname -f | sed -e 's/^[^.]*\.//'` == "cluster" ]] ; then
     alias ls='ls -h --color'
@@ -31,6 +34,7 @@ alias lh='ls -lth|/usr/bin/head -20'
 alias lds='ls -ld */'
 alias ll='ls -lh'
 alias lsd='ls -lhd */'
+alias watch='watch --color'
 alias wlh='watch "ls -lth |head -20"'
 alias W='pushd /W/em250772'
 alias s='less STDOUT'

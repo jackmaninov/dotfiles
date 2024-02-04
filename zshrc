@@ -159,3 +159,35 @@ then
 fi
 # . /etc/zsh_command_not_found
 setopt +o nomatch
+eval `keychain -q --eval --agents ssh id_ed25519 hjallr-dev-repo domaincompany hjallr-dev brondings-new `
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+source <(talosctl completion zsh)
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/eamon/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+apt() { 
+  command nala "$@"
+}
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}
+
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
