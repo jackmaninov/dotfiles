@@ -17,6 +17,8 @@
 -- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
 --
 
+local overrides = require("custom.configs.overrides")
+
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 
@@ -125,17 +127,29 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
 
-    dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        require "custom.configs.null-ls"
-      end,
-    },
+    -- dependencies = {
+    --   "jose-elias-alvarez/null-ls.nvim",
+    --   config = function()
+    --     require "custom.configs.null-ls"
+    --   end,
+    -- },
 
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+  },
+
+
+
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
   },
 
   {
@@ -147,9 +161,29 @@ local plugins = {
   },
 
   {
-    "vlime/vlime"
-  }
+    "max397574/better-escape.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("better_escape").setup {
+        mapping = {"ne", "nn"},
+        clear_empty_lines = true,
+        keys = "<Esc>",
+      }
+    end,
+  },
 
+  {
+    "vlime/vlime"
+  },
+
+  {
+    "stevearc/conform.nvim",
+    --  for users those who want auto-save conform + lazyloading!
+    -- event = "BufWritePre"
+    config = function()
+      require "custom.configs.conform"
+    end,
+  },
 }
 
 
