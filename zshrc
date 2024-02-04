@@ -174,7 +174,6 @@ source <(talosctl completion zsh)
 export PATH="/home/eamon/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-<<<<<<< HEAD
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 apt() { 
@@ -192,6 +191,4 @@ sudo() {
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
-=======
 export PATH=$(go env GOPATH)/bin:$PATH
->>>>>>> aa0dbf2457bbe3f1bc40b29e9e4067d7a37fee83
