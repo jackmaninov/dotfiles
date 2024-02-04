@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc zshrc alias.zsh tmux.conf .config/nvim/lua/custom "    # list of files/folders to symlink in homedir
+files="bashrc zshrc alias.zsh tmux.conf config/nvim/lua/custom "    # list of files/folders to symlink in homedir
 
 git submodule init
 git submodule update
