@@ -159,3 +159,11 @@ then
 fi
 # . /etc/zsh_command_not_found
 setopt +o nomatch
+
+eval `keychain -q --eval hjallr-dev-repo hjallr-dev`
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/eamon/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export PATH=$(go env GOPATH)/bin:$PATH

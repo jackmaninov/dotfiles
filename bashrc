@@ -97,3 +97,7 @@ export BERRYPI_PYTHON=/opt/softs/python/2.7.8/bin/python
 alias berrypi="${BERRYPI_PYTHON} ${BERRYPI_PATH}/berrypi"
 # --- BERRYPI END ---
 
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/eamon/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

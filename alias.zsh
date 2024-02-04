@@ -9,7 +9,8 @@ alias nv="nvim"
 alias vi='nvim'
 alias evp="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/plugins.lua; popd"
 alias evm="pushd ~/.config/nvim/lua && vi ~/.config/nvim/lua/custom/mappings.lua; popd"
-alias t="mux default"
+# alias t="mux default"
+alias t="TERM=xterm-256color talosctl --talosconfig ~/.talos/config"
 alias em="mux edit default"
 alias pb="ansible-playbook -i /home/eamon/src/bronding/infra/ansible/inventory/signet/inventory.yaml"
 

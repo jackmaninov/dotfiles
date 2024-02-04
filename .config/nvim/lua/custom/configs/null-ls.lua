@@ -21,7 +21,7 @@ local sources = {
   lint.actionlint,
   lint.checkmake,
   lint.cmake_lint,
-  lint.codespell,
+  -- lint.codespell,
   lint.commitlint,
   lint.hadolint,
 }
