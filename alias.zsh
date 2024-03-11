@@ -30,6 +30,8 @@ fi
 
 # custom
 #alias ls='ls -h'
+# alias sudo='sudo env "PATH=$PATH" '
+# alias sudo='PATH=$PATH sudo '
 alias lh='ls -lth|/usr/bin/head -20'
 alias lds='ls -ld */'
 alias ll='ls -lh'
